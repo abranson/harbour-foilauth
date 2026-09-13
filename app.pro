@@ -7,8 +7,8 @@ openrepos {
 }
 
 TARGET = $${PREFIX}-$${NAME}
-CONFIG += sailfishapp link_pkgconfig
-PKGCONFIG += sailfishapp keepalive mlite5 glib-2.0 gobject-2.0
+CONFIG += sailfishapp link_pkgconfig c++11
+PKGCONFIG += sailfishsecrets sailfishapp keepalive mlite5 glib-2.0 gobject-2.0
 QT += qml sql quick dbus multimedia concurrent
 
 QMAKE_CXXFLAGS += -Wno-unused-parameter
@@ -82,6 +82,7 @@ INCLUDEPATH += \
     $${LIBQRENCODE_DIR}
 
 HEADERS += \
+    src/FoilAuthBiometric.h \
     src/FoilAuth.h \
     src/FoilAuthDefs.h \
     src/FoilAuthFavoritesModel.h \
@@ -96,6 +97,7 @@ HEADERS += \
     src/SailOTP.h
 
 SOURCES += \
+    src/FoilAuthBiometric.cpp \
     src/FoilAuth.cpp \
     src/FoilAuthFavoritesModel.cpp \
     src/FoilAuthGroupModel.cpp \
@@ -241,6 +243,7 @@ OTHER_FILES += \
 # Translations
 
 TRANSLATION_SOURCES = \
+    $${_PRO_FILE_PWD_}/src/FoilAuthBiometric.cpp \
     $${_PRO_FILE_PWD_}/qml \
     $${_PRO_FILE_PWD_}/settings
 

@@ -42,6 +42,7 @@
 #include "FoilAuthGroupModel.h"
 #include "FoilAuthImportModel.h"
 #include "FoilAuthModel.h"
+#include "FoilAuthBiometric.h"
 #include "FoilAuthSettings.h"
 #include "FoilAuthToken.h"
 #include "FoilAuth.h"
@@ -85,6 +86,7 @@ static void register_types(const char* uri, int v1 = 1, int v2 = 0)
     REGISTER_SINGLETON_TYPE(uri, v1, v2, FoilAuthModel);
     REGISTER_SINGLETON_TYPE(uri, v1, v2, FoilAuth);
     REGISTER_SINGLETON_TYPE(uri, v1, v2, SailOTP);
+    REGISTER_TYPE(uri, v1, v2, FoilAuthBiometric);
     REGISTER_TYPE(uri, v1, v2, FoilAuthFavoritesModel);
     REGISTER_TYPE(uri, v1, v2, FoilAuthGroupModel);
     REGISTER_TYPE(uri, v1, v2, FoilAuthImportModel);

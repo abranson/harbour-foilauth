@@ -523,5 +523,28 @@
             <numerusform>%1 min</numerusform>
         </translation>
     </message>
+    <message id="foilauth-biometric-incorrect-password">
+        <source>Incorrect Foil password</source>
+        <translation>Incorrect Foil password</translation>
+    </message>
+    <message id="foilauth-biometric-password-changed">
+        <source>The Foil password has changed. Set up fingerprint unlock again.</source>
+        <translation>The Foil password has changed. Set up fingerprint unlock again.</translation>
+    </message>
+    <message id="foilauth-biometric-save">
+        <source>Save</source>
+        <extracomment>Save the entered Foil password for device authentication</extracomment>
+        <translation>Save</translation>
+    </message>
+    <message id="foilauth-biometric-disable-device">
+        <source>Disable device unlock</source>
+        <extracomment>Button label</extracomment>
+        <translation>Disable device unlock</translation>
+    </message>
+    <message id="foilauth-biometric-enter-password">
+        <source>Please enter your password</source>
+        <extracomment>Password entry prompt after device authentication is canceled</extracomment>
+        <translation>Please enter your password</translation>
+    </message>
 </context>
 </TS>

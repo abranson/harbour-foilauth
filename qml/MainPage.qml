@@ -1,4 +1,4 @@
-import QtQuick 2.0
+import QtQuick 2.6
 import Sailfish.Silica 1.0
 import harbour.foilauth 1.0
 import org.nemomobile.notifications 1.0
@@ -9,6 +9,18 @@ import "harbour"
 
 Page {
     id: thisPage
+
+    FoilAuthBiometric {
+        id: biometric
+
+        model: FoilAuthModel
+        onErrorChanged: {
+            if (error.length > 0) {
+                notification.previewBody = error
+                notification.publish()
+            }
+        }
+    }
 
     readonly property var foilModel: FoilAuthModel
     property var foilUi
@@ -243,10 +255,11 @@ Page {
             opacity: (foilModel.foilState === FoilAuthModel.FoilLocked ||
                         foilModel.foilState === FoilAuthModel.FoilLockedTimedOut) ? 1 : 0
             sourceComponent: Component {
-                FoilUiEnterPasswordView {
+                FoilAuthEnterPasswordView {
                     foilUi: getFoilUi()
                     foilModel: thisPage.foilModel
                     page: thisPage
+                    deviceAuth: biometric
                     iconComponent: Component {
                         Image {
                             width: Theme.itemSizeHuge
@@ -255,11 +268,6 @@ Page {
                             source: "images/foilauth.svg"
                         }
                     }
-                }
-            }
-            onItemChanged: {
-                if (item) {
-                    item.requestFocus()
                 }
             }
             Behavior on opacity { FadeAnimation { } }
